@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Transformation</title>
+</head>
+<body>
+<h1>Text Transformation</h1>
+
+<form>
+    <label for="textInput">Enter a sentence:</label>
+    <input type="text" id="textInput" placeholder="Enter a sentence">
+    <button type="button" onclick="transformText()">Transform Text</button>
+</form>
+
+<div id="output">
+    <h2>Reversed Sentence:</h2>
+    <p id="reversedSentence"></p>
+
+    <h2>Sorted Array (Descending Order):</h2>
+    <p id="sortedArray"></p>
+</div>
+
+<script>
+    function reverseWords(sentence) {
+        const words = sentence.split(" ");
+        const reversedWords = words.map(word => {
+            return word.split("").reverse().join("");
+        });
+        return reversedWords.join(" ");
+    }
+
+    function sortDescending(arr) {
+        return arr.slice().sort((a, b) => b - a);
+    }
+
+    function transformText() {
+        const inputSentence = document.getElementById("textInput").value;
+
+        // Reverse the sentence
+        const reversedSentence = reverseWords(inputSentence);
+        document.getElementById("reversedSentence").textContent = reversedSentence;
+
+        // Sort an array in descending order
+        const inputArray = [5, 2, 9, 1, 7];
+        const sortedArray = sortDescending(inputArray);
+        document.getElementById("sortedArray").textContent = sortedArray;
+    }
+</script>
+</body>
+</html>
